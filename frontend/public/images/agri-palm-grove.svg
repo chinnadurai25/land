@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-label="Palm Grove Farmlands in Melur">
+  <defs>
+    <linearGradient id="s5" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#DCE8DB"/>
+      <stop offset="100%" stop-color="#FAF4DF"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="900" fill="url(#s5)"/>
+  <circle cx="230" cy="210" r="65" fill="#FFF8DC"/>
+  <path d="M0 470 Q350 420 720 465 T1200 440 L1200 900 L0 900 Z" fill="#5D9254"/>
+  <path d="M0 615 Q420 580 860 630 T1200 600 L1200 900 L0 900 Z" fill="#3B7249"/>
+  <!-- Palm rows -->
+  <g fill="#1F4A36">
+    <rect x="440" y="340" width="14" height="250"/>
+    <circle cx="447" cy="335" r="55"/>
+    <rect x="640" y="320" width="16" height="280"/>
+    <circle cx="648" cy="315" r="62"/>
+    <rect x="860" y="305" width="18" height="310"/>
+    <circle cx="869" cy="300" r="68"/>
+  </g>
+</svg>

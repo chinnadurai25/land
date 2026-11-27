@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-label="Royal Park Residency plot in Thirumangalam">
+  <defs>
+    <linearGradient id="s3" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#D7E6EC"/>
+      <stop offset="100%" stop-color="#F5F3E6"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="900" fill="url(#s3)"/>
+  <rect y="490" width="1200" height="410" fill="#6D9762"/>
+  <polygon points="100,545 1040,530 1160,810 40,810" fill="#D5B186"/>
+  <!-- Corner road -->
+  <polygon points="0,785 1200,775 1200,900 0,900" fill="#465054"/>
+  <!-- Street lamps -->
+  <g stroke="#2B3A33" stroke-width="6" fill="none">
+    <line x1="250" y1="785" x2="250" y2="410"/>
+    <path d="M250 410 Q275 395 305 408"/>
+    <line x1="920" y1="780" x2="920" y2="400"/>
+    <path d="M920 400 Q895 385 865 398"/>
+  </g>
+  <circle cx="305" cy="412" r="10" fill="#FFF2B2"/>
+  <circle cx="865" cy="402" r="10" fill="#FFF2B2"/>
+  <!-- Boundary wall corner -->
+  <rect x="130" y="705" width="900" height="22" fill="#EFECE2" stroke="#99A696" stroke-width="2"/>
+  <circle cx="145" cy="465" r="78" fill="#245B45"/>
+  <circle cx="1045" cy="460" r="82" fill="#2E6B4F"/>
+</svg>

@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-label="BAMA Nagar Extension residential land plot in Kadachanendhal">
+  <defs>
+    <linearGradient id="s1" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#CBE2EE"/>
+      <stop offset="65%" stop-color="#EAF2E8"/>
+      <stop offset="100%" stop-color="#F6F5E8"/>
+    </linearGradient>
+    <linearGradient id="earth1" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#CFA57C"/>
+      <stop offset="100%" stop-color="#B9875B"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="900" fill="url(#s1)"/>
+  <path d="M0 440 Q320 390 640 430 T1200 410 L1200 540 L0 540 Z" fill="#6F9478" opacity="0.45"/>
+  <rect y="510" width="1200" height="390" fill="#68955E"/>
+  <!-- Demarcated level plot -->
+  <polygon points="180,560 980,540 1140,860 60,860" fill="url(#earth1)"/>
+  <polygon points="220,585 950,568 1060,810 130,810" fill="#D8B38C" opacity="0.7"/>
+  <!-- Green grass borders -->
+  <polygon points="0,780 1200,770 1200,900 0,900" fill="#465258"/>
+  <line x1="0" y1="840" x2="1200" y2="835" stroke="#FAF9F5" stroke-width="6" stroke-dasharray="48 34"/>
+  <!-- White boundary stones -->
+  <g fill="#FAF9F5" stroke="#245B45" stroke-width="3">
+    <rect x="200" y="555" width="18" height="44" rx="4"/>
+    <rect x="945" y="540" width="18" height="44" rx="4"/>
+    <rect x="115" y="742" width="22" height="52" rx="4"/>
+    <rect x="1030" y="732" width="22" height="52" rx="4"/>
+  </g>
+  <!-- Avenue trees -->
+  <g>
+    <rect x="110" y="420" width="14" height="145" fill="#5A4634"/>
+    <circle cx="117" cy="395" r="68" fill="#245B45"/>
+    <circle cx="148" cy="415" r="46" fill="#357355"/>
+    <rect x="1055" y="405" width="14" height="150" fill="#5A4634"/>
+    <circle cx="1062" cy="380" r="72" fill="#245B45"/>
+    <circle cx="1028" cy="402" r="48" fill="#3E825E"/>
+  </g>
+</svg>

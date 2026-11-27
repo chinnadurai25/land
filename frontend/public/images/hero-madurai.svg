@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-label="Madurai countryside landscape with green fields, coconut palms, and distant hills">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#D9E8D8"/>
+      <stop offset="55%" stop-color="#EEF3E4"/>
+      <stop offset="100%" stop-color="#F7F4E2"/>
+    </linearGradient>
+    <radialGradient id="sun" cx="78%" cy="22%" r="28%">
+      <stop offset="0%" stop-color="#FFFBE8" stop-opacity="0.95"/>
+      <stop offset="45%" stop-color="#F5E9B8" stop-opacity="0.45"/>
+      <stop offset="100%" stop-color="#EEF3E4" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="hillFar" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#7B9B84"/>
+      <stop offset="100%" stop-color="#587C65"/>
+    </linearGradient>
+    <linearGradient id="hillMid" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#4A775A"/>
+      <stop offset="100%" stop-color="#2F5B42"/>
+    </linearGradient>
+    <linearGradient id="field1" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#5B8F56"/>
+      <stop offset="100%" stop-color="#386B46"/>
+    </linearGradient>
+    <linearGradient id="field2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#7CB063"/>
+      <stop offset="100%" stop-color="#2E6144"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="900" fill="url(#sky)"/>
+  <rect width="1200" height="600" fill="url(#sun)"/>
+  <circle cx="930" cy="200" r="64" fill="#FFF7D6" opacity="0.9"/>
+
+  <!-- Distant Madurai hills (Yanamalai / Nagamalai silhouettes) -->
+  <path d="M0 440 Q180 350 370 405 T780 380 T1200 415 L1200 560 L0 560 Z" fill="url(#hillFar)" opacity="0.72"/>
+  <path d="M0 475 Q240 420 510 465 T980 430 T1200 460 L1200 590 L0 590 Z" fill="url(#hillMid)" opacity="0.82"/>
+
+  <!-- Mist layer -->
+  <rect y="455" width="1200" height="65" fill="#F3F5EB" opacity="0.35"/>
+
+  <!-- Rolling green agricultural fields -->
+  <path d="M0 500 Q340 470 680 510 T1200 490 L1200 900 L0 900 Z" fill="url(#field1)"/>
+  <path d="M0 585 Q380 540 760 595 T1200 570 L1200 900 L0 900 Z" fill="url(#field2)"/>
+  <path d="M0 685 Q310 645 640 700 T1200 665 L1200 900 L0 900 Z" fill="#245B45" opacity="0.88"/>
+
+  <!-- Quiet rural earthen path curving through fields -->
+  <path d="M470 900 C505 790 545 725 585 660 C618 605 648 565 680 520 L710 524 C676 575 654 615 628 670 C598 735 572 805 555 900 Z" fill="#DECBA8" opacity="0.92"/>
+
+  <!-- Field bund lines -->
+  <path d="M0 640 Q260 618 540 650" stroke="#A6C48A" stroke-width="4" fill="none" opacity="0.55"/>
+  <path d="M675 615 Q930 595 1200 628" stroke="#A6C48A" stroke-width="4" fill="none" opacity="0.55"/>
+  <path d="M0 770 Q280 745 535 780" stroke="#85AE71" stroke-width="5" fill="none" opacity="0.45"/>
+
+  <!-- Coconut palms cluster left -->
+  <g fill="#1E4634">
+    <path d="M165 610 Q180 470 155 320 L169 320 Q196 470 183 610 Z"/>
+    <path d="M162 325 C110 295 65 315 35 345 C80 330 120 325 162 332 Z"/>
+    <path d="M162 325 C120 270 85 260 55 275 C95 280 130 295 162 325 Z"/>
+    <path d="M164 325 C185 265 225 260 265 282 C225 285 190 300 164 325 Z"/>
+    <path d="M164 325 C215 300 260 320 295 355 C250 340 205 332 164 325 Z"/>
+    <path d="M162 328 C145 360 115 390 85 415 C115 385 140 360 162 328 Z"/>
+  </g>
+  <g fill="#255740" transform="translate(115, 45) scale(0.84)">
+    <path d="M165 610 Q150 470 172 320 L186 320 Q168 470 183 610 Z"/>
+    <path d="M178 325 C126 295 81 315 51 345 C96 330 136 325 178 332 Z"/>
+    <path d="M178 325 C136 270 101 260 71 275 C111 280 146 295 178 325 Z"/>
+    <path d="M180 325 C201 265 241 260 281 282 C241 285 206 300 180 325 Z"/>
+    <path d="M180 325 C231 300 276 320 311 355 C266 340 221 332 180 325 Z"/>
+  </g>
+
+  <!-- Coconut palms cluster right -->
+  <g fill="#193F2E" transform="translate(815, 25) scale(1.06)">
+    <path d="M165 610 Q148 465 172 315 L186 315 Q166 465 183 610 Z"/>
+    <path d="M178 320 C125 290 78 312 45 342 C92 326 134 320 178 328 Z"/>
+    <path d="M178 320 C134 265 98 254 68 270 C108 275 145 290 178 320 Z"/>
+    <path d="M180 320 C202 260 245 255 286 278 C244 282 208 296 180 320 Z"/>
+    <path d="M180 320 C234 295 280 315 316 352 C268 335 222 328 180 320 Z"/>
+  </g>
+  <g fill="#2B6247" transform="translate(690, 95) scale(0.75)">
+    <path d="M165 610 Q176 470 160 320 L174 320 Q192 470 182 610 Z"/>
+    <path d="M167 325 C115 295 70 315 40 345 C85 330 125 325 167 332 Z"/>
+    <path d="M169 325 C190 265 230 260 270 282 C230 285 195 300 169 325 Z"/>
+    <path d="M169 325 C220 300 265 320 300 355 C255 340 210 332 169 325 Z"/>
+  </g>
+
+  <!-- Soft foreground foliage -->
+  <ellipse cx="95" cy="865" rx="180" ry="70" fill="#183D2E"/>
+  <ellipse cx="1095" cy="870" rx="200" ry="75" fill="#183D2E"/>
+  <ellipse cx="260" cy="890" rx="140" ry="48" fill="#245B45"/>
+</svg>

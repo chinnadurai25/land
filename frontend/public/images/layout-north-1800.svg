@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-label="Illustrative North-facing plot layout diagram, not a legal survey plan">
+  <rect width="1200" height="900" fill="#FAF9F5"/>
+  <rect x="40" y="40" width="1120" height="820" rx="24" fill="#EEF1E8" stroke="#C5D1C1" stroke-width="3"/>
+  <!-- Road on North (Top) -->
+  <rect x="160" y="95" width="880" height="135" rx="12" fill="#D9DFD5" stroke="#9AA898" stroke-width="3"/>
+  <text x="600" y="172" font-family="Verdana, sans-serif" font-size="26" font-weight="bold" fill="#1F3229" text-anchor="middle">AVENUE ROAD (NORTH FRONTAGE)</text>
+  <!-- Plot box -->
+  <rect x="240" y="275" width="720" height="450" rx="8" fill="#FFFFFF" stroke="#245B45" stroke-width="6"/>
+  <rect x="275" y="310" width="650" height="380" fill="#F4F8F2" stroke="#245B45" stroke-width="2" stroke-dasharray="10 8"/>
+  <text x="600" y="465" font-family="Verdana, sans-serif" font-size="34" font-weight="bold" fill="#245B45" text-anchor="middle">ILLUSTRATIVE PLOT</text>
+  <text x="600" y="515" font-family="Verdana, sans-serif" font-size="24" fill="#1F3229" text-anchor="middle">North Facing Frontage</text>
+  <text x="600" y="560" font-family="Verdana, sans-serif" font-size="20" fill="#666666" text-anchor="middle">Setback &amp; Entry Orientation Guide</text>
+  <!-- Compass -->
+  <circle cx="120" cy="340" r="48" fill="#FFFFFF" stroke="#245B45" stroke-width="3"/>
+  <text x="120" y="315" font-family="Verdana, sans-serif" font-size="22" font-weight="bold" fill="#245B45" text-anchor="middle">N</text>
+  <path d="M120 322 L131 353 L120 345 L109 353 Z" fill="#245B45"/>
+  <!-- Disclaimer -->
+  <rect x="120" y="775" width="960" height="58" rx="12" fill="#183D2E"/>
+  <text x="600" y="812" font-family="Verdana, sans-serif" font-size="20" font-weight="bold" fill="#C8DC9F" text-anchor="middle">ILLUSTRATIVE DIAGRAM ONLY — NOT A LEGAL SURVEY PLAN</text>
+</svg>

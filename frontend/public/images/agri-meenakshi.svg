@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-label="Sri Meenakshi Gardens agricultural land in Alanganallur">
+  <defs>
+    <linearGradient id="s4" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#D2E6DC"/>
+      <stop offset="100%" stop-color="#F4F4E4"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="900" fill="url(#s4)"/>
+  <path d="M0 445 Q280 350 600 410 T1200 385 L1200 560 L0 560 Z" fill="#5D876C" opacity="0.68"/>
+  <rect y="510" width="1200" height="390" fill="#4E854E"/>
+  <path d="M0 600 Q450 560 900 615 T1200 595 L1200 900 L0 900 Z" fill="#6AA158"/>
+  <path d="M0 730 Q500 695 1200 745 L1200 900 L0 900 Z" fill="#2E6346"/>
+  <!-- Coconut palms -->
+  <g fill="#1B4431">
+    <rect x="260" y="290" width="18" height="320" rx="8"/>
+    <path d="M268 295 C195 255 140 280 105 320 C165 300 220 295 268 302 Z"/>
+    <path d="M270 295 C315 240 375 245 425 280 C365 275 315 285 270 295 Z"/>
+    <path d="M270 298 C340 285 400 315 440 355 C380 330 325 312 270 298 Z"/>
+  </g>
+  <g fill="#245B45" transform="translate(590, 35) scale(0.95)">
+    <rect x="260" y="290" width="18" height="320" rx="8"/>
+    <path d="M268 295 C195 255 140 280 105 320 C165 300 220 295 268 302 Z"/>
+    <path d="M270 295 C315 240 375 245 425 280 C365 275 315 285 270 295 Z"/>
+    <path d="M270 298 C340 285 400 315 440 355 C380 330 325 312 270 298 Z"/>
+  </g>
+</svg>

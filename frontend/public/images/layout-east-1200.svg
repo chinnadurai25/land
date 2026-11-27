@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-label="Illustrative East-facing plot layout diagram, not a legal survey plan">
+  <rect width="1200" height="900" fill="#FAF9F5"/>
+  <rect x="40" y="40" width="1120" height="820" rx="24" fill="#EEF1E8" stroke="#C5D1C1" stroke-width="3"/>
+  <!-- Road on East (Right) -->
+  <rect x="860" y="130" width="220" height="620" rx="12" fill="#D9DFD5" stroke="#9AA898" stroke-width="3"/>
+  <text x="970" y="445" font-family="Verdana, sans-serif" font-size="26" font-weight="bold" fill="#1F3229" text-anchor="middle" transform="rotate(-90 970 445)">30 FT ACCESS ROAD (EAST)</text>
+  <!-- Plot box -->
+  <rect x="200" y="210" width="600" height="460" rx="8" fill="#FFFFFF" stroke="#245B45" stroke-width="6"/>
+  <rect x="235" y="245" width="530" height="390" fill="#F4F8F2" stroke="#245B45" stroke-width="2" stroke-dasharray="10 8"/>
+  <text x="500" y="410" font-family="Verdana, sans-serif" font-size="34" font-weight="bold" fill="#245B45" text-anchor="middle">ILLUSTRATIVE PLOT</text>
+  <text x="500" y="460" font-family="Verdana, sans-serif" font-size="24" fill="#1F3229" text-anchor="middle">30 ft × 40 ft (Approx. 1,200 sq.ft)</text>
+  <text x="500" y="505" font-family="Verdana, sans-serif" font-size="20" fill="#666666" text-anchor="middle">East Facing Frontage</text>
+  <!-- Compass -->
+  <circle cx="135" cy="145" r="52" fill="#FFFFFF" stroke="#245B45" stroke-width="3"/>
+  <text x="135" y="118" font-family="Verdana, sans-serif" font-size="22" font-weight="bold" fill="#245B45" text-anchor="middle">N</text>
+  <path d="M135 125 L146 156 L135 148 L124 156 Z" fill="#245B45"/>
+  <!-- Disclaimer banner -->
+  <rect x="120" y="775" width="960" height="58" rx="12" fill="#183D2E"/>
+  <text x="600" y="812" font-family="Verdana, sans-serif" font-size="20" font-weight="bold" fill="#C8DC9F" text-anchor="middle">ILLUSTRATIVE DIAGRAM ONLY — NOT A LEGAL SURVEY PLAN</text>
+</svg>

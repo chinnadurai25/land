@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-label="City Centre Workspace commercial property in Madurai">
+  <defs>
+    <linearGradient id="s7" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#D7E5EB"/>
+      <stop offset="100%" stop-color="#EEF2EA"/>
+    </linearGradient>
+    <linearGradient id="glass" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#A8CDD7"/>
+      <stop offset="100%" stop-color="#6B9BA8"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="900" fill="url(#s7)"/>
+  <rect y="700" width="1200" height="200" fill="#B6BDB2"/>
+  <rect y="775" width="1200" height="125" fill="#4B5559"/>
+  <!-- Modern commercial facade -->
+  <rect x="210" y="210" width="780" height="500" rx="16" fill="#F7F4EA" stroke="#C5CEC0" stroke-width="4"/>
+  <rect x="210" y="210" width="780" height="44" rx="8" fill="#245B45"/>
+  <!-- Glass bays -->
+  <rect x="260" y="290" width="205" height="165" rx="6" fill="url(#glass)" stroke="#245B45" stroke-width="4"/>
+  <rect x="498" y="290" width="205" height="165" rx="6" fill="url(#glass)" stroke="#245B45" stroke-width="4"/>
+  <rect x="735" y="290" width="205" height="165" rx="6" fill="url(#glass)" stroke="#245B45" stroke-width="4"/>
+  <rect x="260" y="490" width="205" height="180" rx="6" fill="url(#glass)" stroke="#245B45" stroke-width="4"/>
+  <rect x="515" y="505" width="170" height="205" rx="6" fill="#183D2E"/>
+  <rect x="735" y="490" width="205" height="180" rx="6" fill="url(#glass)" stroke="#245B45" stroke-width="4"/>
+  <!-- Planters -->
+  <rect x="240" y="680" width="180" height="42" rx="8" fill="#245B45"/>
+  <circle cx="290" cy="665" r="28" fill="#4C8B64"/>
+  <circle cx="365" cy="665" r="28" fill="#4C8B64"/>
+  <rect x="780" y="680" width="180" height="42" rx="8" fill="#245B45"/>
+  <circle cx="835" cy="665" r="28" fill="#4C8B64"/>
+  <circle cx="910" cy="665" r="28" fill="#4C8B64"/>
+</svg>

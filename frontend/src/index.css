@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: 'Verdana', 'Geneva', sans-serif;
+    background-color: #FAF9F5;
+    color: #1F3229;
+    scroll-behavior: smooth;
+    overflow-x: clip;
+  }
+
+  body {
+    font-family: 'Verdana', 'Geneva', sans-serif;
+    background-color: #FAF9F5;
+    color: #1F3229;
+    overflow-x: clip;
+    margin: 0;
+  }
+
+  button,
+  input,
+  select,
+  textarea {
+    font-family: 'Verdana', 'Geneva', sans-serif;
+  }
+
+  *:focus-visible {
+    outline: 3px solid #245B45;
+    outline-offset: 2px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
