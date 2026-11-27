@@ -57,6 +57,13 @@ function AppShell() {
     navigate(`/properties/${toLocalitySlug(locality)}`);
   };
 
+  const homeProps = {
+    onOpenNewListing: handleOpenAddListing,
+    onEditListing: handleEditListing,
+    onPropertyDeleted: () => setListingRefreshNonce((n) => n + 1),
+    listingRefreshNonce,
+  };
+
   return (
     <div className="flex min-h-screen flex-col bg-[#FAF9F5] text-[#1F3229]">
       <Header
@@ -66,23 +73,29 @@ function AppShell() {
 
       <div className="flex-1">
         <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/buy-properties" element={<HomePage routePurpose="SALE" scrollToResults />} />
+          <Route path="/" element={<HomePage {...homeProps} />} />
+          <Route
+            path="/buy-properties"
+            element={<HomePage {...homeProps} routePurpose="SALE" scrollToResults />}
+          />
           <Route
             path="/buy-properties/:localitySlug"
-            element={<HomePage routePurpose="SALE" scrollToResults />}
+            element={<HomePage {...homeProps} routePurpose="SALE" scrollToResults />}
           />
-          <Route path="/rent-properties" element={<HomePage routePurpose="RENT" scrollToResults />} />
+          <Route
+            path="/rent-properties"
+            element={<HomePage {...homeProps} routePurpose="RENT" scrollToResults />}
+          />
           <Route
             path="/rent-properties/:localitySlug"
-            element={<HomePage routePurpose="RENT" scrollToResults />}
+            element={<HomePage {...homeProps} routePurpose="RENT" scrollToResults />}
           />
           <Route
             path="/properties/:localitySlug"
-            element={<HomePage scrollToResults />}
+            element={<HomePage {...homeProps} scrollToResults />}
           />
-          <Route path="/property/:slug" element={<HomePage />} />
-          <Route path="/contact" element={<HomePage scrollToContact />} />
+          <Route path="/property/:slug" element={<HomePage {...homeProps} />} />
+          <Route path="/contact" element={<HomePage {...homeProps} scrollToContact />} />
           <Route
             path="/account"
             element={
@@ -94,7 +107,7 @@ function AppShell() {
             }
           />
           <Route path="/admin" element={<AdminPage />} />
-          <Route path="*" element={<HomePage />} />
+          <Route path="*" element={<HomePage {...homeProps} />} />
         </Routes>
       </div>
 
@@ -111,6 +124,9 @@ function AppShell() {
         editingProperty={editingProperty}
         onClose={() => setListingModalOpen(false)}
         onSaved={() => {
+          setListingRefreshNonce((n) => n + 1);
+        }}
+        onDeleted={() => {
           setListingRefreshNonce((n) => n + 1);
         }}
       />

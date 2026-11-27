@@ -122,7 +122,7 @@ export function Header({ onNavigateSection, onAddFreeListing }: HeaderProps) {
                   className="inline-flex min-h-[44px] items-center gap-2 rounded-full border border-[#D3DDD0] bg-white px-4 py-2 text-[14px] font-bold text-[#1F3229] hover:bg-[#EEF1E8] transition-colors"
                 >
                   <LayoutDashboard className="h-4 w-4 text-[#245B45]" aria-hidden="true" />
-                  <span className="max-w-[120px] truncate">{user.fullName.split(' ')[0]}</span>
+                  <span>My Properties</span>
                 </Link>
                 {user.role === 'ADMIN' && (
                   <Link
@@ -146,7 +146,13 @@ export function Header({ onNavigateSection, onAddFreeListing }: HeaderProps) {
             ) : (
               <button
                 type="button"
-                onClick={() => openAuthModal()}
+                onClick={() =>
+                  openAuthModal({
+                    onAuthenticated: (loggedInUser) => {
+                      navigate(loggedInUser.role === 'ADMIN' ? '/admin' : '/account');
+                    },
+                  })
+                }
                 aria-label="Login or Register"
                 title="Login or Register"
                 className="inline-flex h-11 min-w-[44px] items-center justify-center gap-2 rounded-full border border-[#D3DDD0] bg-white px-3.5 text-[#1F3229] hover:bg-[#EEF1E8] transition-colors"
@@ -238,7 +244,7 @@ export function Header({ onNavigateSection, onAddFreeListing }: HeaderProps) {
                   className="flex min-h-[48px] w-full items-center gap-2 rounded-2xl px-4 py-3 text-[16px] font-bold text-[#245B45] hover:bg-[#EEF1E8]"
                 >
                   <LayoutDashboard className="h-5 w-5" aria-hidden="true" />
-                  <span>My Account</span>
+                  <span>My Properties</span>
                 </Link>
                 {user.role === 'ADMIN' && (
                   <Link

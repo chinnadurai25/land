@@ -8,6 +8,7 @@ import {
   MessageSquare,
   ShieldCheck,
   Sparkles,
+  Trash2,
   UserCheck,
   UserX,
   Users,
@@ -101,6 +102,10 @@ export function AdminPage() {
   const [activityModalOpen, setActivityModalOpen] = useState(false);
   const [activityLoading, setActivityLoading] = useState(false);
   const [activityData, setActivityData] = useState<UserActivityData | null>(null);
+
+  // Property delete confirmation modal state
+  const [deleteTarget, setDeleteTarget] = useState<PropertyItem | null>(null);
+  const [deletingProperty, setDeletingProperty] = useState(false);
 
   const loadAdminData = useCallback(async () => {
     if (user?.role !== 'ADMIN') return;
@@ -268,6 +273,32 @@ export function AdminPage() {
         type: 'error',
         text: err instanceof ApiError ? err.message : 'Failed to update featured flag.',
       });
+    }
+  };
+
+  const handleConfirmDeleteProperty = async () => {
+    if (!deleteTarget || deletingProperty) return;
+    setDeletingProperty(true);
+    setFeedback(null);
+
+    try {
+      const res = await apiFetch<{ message: string }>(
+        `/admin/properties/${deleteTarget.id}`,
+        { method: 'DELETE' }
+      );
+      setFeedback({
+        type: 'success',
+        text: `${deleteTarget.title}: ${res.message}`,
+      });
+      setDeleteTarget(null);
+      await loadAdminData();
+    } catch (err) {
+      setFeedback({
+        type: 'error',
+        text: err instanceof ApiError ? err.message : 'Failed to delete property.',
+      });
+    } finally {
+      setDeletingProperty(false);
     }
   };
 
@@ -768,6 +799,15 @@ export function AdminPage() {
                       <Sparkles className="h-4 w-4" aria-hidden="true" />
                       <span>{prop.isFeatured ? 'Featured' : 'Mark Featured'}</span>
                     </button>
+
+                    <button
+                      type="button"
+                      onClick={() => setDeleteTarget(prop)}
+                      className="inline-flex min-h-[44px] items-center gap-1.5 rounded-full border border-[#D8B490] bg-[#FDF3E7] px-4 py-2 text-[14px] font-bold text-[#8A4A18] hover:bg-[#F7E5CF]"
+                    >
+                      <Trash2 className="h-4 w-4" aria-hidden="true" />
+                      <span>Delete</span>
+                    </button>
                   </div>
                 </article>
               );
@@ -1065,6 +1105,48 @@ export function AdminPage() {
             </div>
           </div>
         )}
+      </AccessibleModal>
+
+      {/* Property Delete Confirmation Dialog */}
+      <AccessibleModal
+        open={Boolean(deleteTarget)}
+        onClose={() => setDeleteTarget(null)}
+        title="Delete Property Listing"
+        subtitle={
+          deleteTarget
+            ? `${deleteTarget.title} (${formatLocationLine(
+                deleteTarget.location.locality,
+                deleteTarget.location.city
+              )})`
+            : undefined
+        }
+        maxWidthClass="max-w-lg"
+        fullScreenMobile={false}
+      >
+        <div className="space-y-4">
+          <p className="text-[16px] text-[#1F3229]">
+            This will permanently delete this property listing and its uploaded photos from the
+            database. This action cannot be undone.
+          </p>
+
+          <div className="flex flex-col sm:flex-row gap-3">
+            <button
+              type="button"
+              onClick={() => setDeleteTarget(null)}
+              className="min-h-[48px] flex-1 rounded-full border border-[#D3DDD0] bg-white px-5 py-2.5 text-[16px] font-bold text-[#1F3229]"
+            >
+              Cancel
+            </button>
+            <button
+              type="button"
+              disabled={deletingProperty}
+              onClick={() => void handleConfirmDeleteProperty()}
+              className="min-h-[48px] flex-1 rounded-full bg-[#8A4A18] px-5 py-2.5 text-[16px] font-bold text-white hover:bg-[#723B12] disabled:opacity-60"
+            >
+              {deletingProperty ? 'Deleting...' : 'Confirm Delete'}
+            </button>
+          </div>
+        </div>
       </AccessibleModal>
     </main>
   );

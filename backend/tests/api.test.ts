@@ -710,6 +710,26 @@ describe('Landnest API security, ownership, workflow, and validation', () => {
     });
     expect(ownerEditPublished.status).toBe(200);
     expect(ownerEditPublished.body.property.publicationStatus).toBe('PENDING_REVIEW');
+
+    // Non-admin cannot use admin property delete endpoint
+    const nonAdminDelete = await invokeApp({
+      method: 'DELETE',
+      url: `/api/v1/admin/properties/${propId}`,
+      cookies: userACookies,
+      headers: { 'x-csrf-token': userACsrf },
+    });
+    expect(nonAdminDelete.status).toBe(403);
+
+    // Admin deletes property and records audit log
+    const adminDelete = await invokeApp({
+      method: 'DELETE',
+      url: `/api/v1/admin/properties/${propId}`,
+      cookies: userBCookies,
+      headers: { 'x-csrf-token': userBCsrf },
+    });
+    expect(adminDelete.status).toBe(200);
+    expect(db.properties.find((p) => p.id === propId)).toBeUndefined();
+    expect(db.auditLogs.some((l) => l.action === 'PROPERTY_DELETED' && l.targetId === propId)).toBe(true);
   });
 
   it('validates server-side math captcha and saves inquiries to database', async () => {

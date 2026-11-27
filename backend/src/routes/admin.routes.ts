@@ -9,6 +9,7 @@ import {
   adminUserStatusSchema,
 } from '../validation/schemas.js';
 import { formatPropertyDto } from '../utils/propertyHelpers.js';
+import { deleteStoredPropertyImage } from '../services/storage.js';
 
 export const adminRouter = Router();
 
@@ -173,6 +174,39 @@ adminRouter.patch('/properties/:id/featured', async (req, res, next) => {
         includeReviewNote: true,
       }),
     });
+  } catch (err) {
+    next(err);
+  }
+});
+
+adminRouter.delete('/properties/:id', async (req, res, next) => {
+  try {
+    const propertyId = String(req.params.id);
+    const existing = await prisma.property.findUnique({
+      where: { id: propertyId },
+      include: { images: true },
+    });
+
+    if (!existing) {
+      throw new AppError(404, 'PROPERTY_NOT_FOUND', 'Property listing not found.');
+    }
+
+    await prisma.$transaction(async (tx) => {
+      await tx.property.delete({ where: { id: existing.id } });
+      await tx.adminAuditLog.create({
+        data: {
+          adminId: req.user!.id,
+          action: 'PROPERTY_DELETED',
+          targetType: 'PROPERTY',
+          targetId: existing.id,
+          details: `Deleted property "${existing.title}"`,
+        },
+      });
+    });
+
+    await Promise.allSettled(existing.images.map((img) => deleteStoredPropertyImage(img.storageKey)));
+
+    res.json({ message: 'Property deleted successfully.' });
   } catch (err) {
     next(err);
   }

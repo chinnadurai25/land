@@ -3,6 +3,7 @@ import { useLocation, useNavigate, useParams, useSearchParams } from 'react-rout
 import { apiFetch, ApiError } from '../api/client';
 import { ContactSection } from '../components/ContactSection';
 import { Hero } from '../components/Hero';
+import { MyPropertiesSection } from '../components/MyPropertiesSection';
 import { PropertyDetailsDialog } from '../components/PropertyDetailsDialog';
 import { PropertyListingsSection } from '../components/PropertyListingsSection';
 import { SearchSection } from '../components/SearchSection';
@@ -22,6 +23,10 @@ interface HomePageProps {
   routePurpose?: ListingPurpose;
   scrollToResults?: boolean;
   scrollToContact?: boolean;
+  onOpenNewListing?: () => void;
+  onEditListing?: (property: PropertyItem) => void;
+  onPropertyDeleted?: () => void;
+  listingRefreshNonce?: number;
 }
 
 function deriveFilters(
@@ -57,6 +62,10 @@ export function HomePage({
   routePurpose,
   scrollToResults = false,
   scrollToContact = false,
+  onOpenNewListing,
+  onEditListing,
+  onPropertyDeleted,
+  listingRefreshNonce = 0,
 }: HomePageProps) {
   const [searchParams] = useSearchParams();
   const { localitySlug, slug: propertySlugParam } = useParams<{
@@ -260,7 +269,7 @@ export function HomePage({
         setLoading(false);
       }
     }
-  }, [filters, user?.id]);
+  }, [filters, user?.id, listingRefreshNonce]);
 
   useEffect(() => {
     void fetchProperties();
@@ -350,6 +359,15 @@ export function HomePage({
           )
         }
       />
+
+      {user && onOpenNewListing && onEditListing && (
+        <MyPropertiesSection
+          onOpenNewListing={onOpenNewListing}
+          onEditListing={onEditListing}
+          onDeleted={onPropertyDeleted}
+          listingRefreshNonce={listingRefreshNonce}
+        />
+      )}
 
       <PropertyListingsSection
         items={items}

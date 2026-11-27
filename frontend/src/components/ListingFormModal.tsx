@@ -18,6 +18,7 @@ interface ListingFormModalProps {
   editingProperty: PropertyItem | null;
   onClose: () => void;
   onSaved: (property: PropertyItem, statusMessage: string) => void;
+  onDeleted?: (propertyId: string) => void;
 }
 
 export function ListingFormModal({
@@ -25,6 +26,7 @@ export function ListingFormModal({
   editingProperty,
   onClose,
   onSaved,
+  onDeleted,
 }: ListingFormModalProps) {
   const [propertyId, setPropertyId] = useState<string | null>(null);
   const [title, setTitle] = useState('');
@@ -50,11 +52,14 @@ export function ListingFormModal({
   const [uploading, setUploading] = useState(false);
 
   const [saving, setSaving] = useState(false);
+  const [confirmDelete, setConfirmDelete] = useState(false);
+  const [deleting, setDeleting] = useState(false);
   const [feedback, setFeedback] = useState<{ type: 'success' | 'error'; text: string } | null>(null);
 
   useEffect(() => {
     if (!open) return;
     setFeedback(null);
+    setConfirmDelete(false);
     if (editingProperty) {
       setPropertyId(editingProperty.id);
       setTitle(editingProperty.title);
@@ -244,6 +249,24 @@ export function ListingFormModal({
       setImages((prev) => prev.filter((img) => img.id !== imageId));
     } catch {
       setFeedback({ type: 'error', text: 'Could not delete image.' });
+    }
+  };
+
+  const handleDeleteListing = async () => {
+    if (!propertyId || deleting) return;
+    setDeleting(true);
+    setFeedback(null);
+    try {
+      await apiFetch(`/properties/${propertyId}`, { method: 'DELETE' });
+      onDeleted?.(propertyId);
+      onClose();
+    } catch (err) {
+      setFeedback({
+        type: 'error',
+        text: err instanceof ApiError ? err.message : 'Could not delete property listing.',
+      });
+    } finally {
+      setDeleting(false);
     }
   };
 
@@ -623,7 +646,7 @@ export function ListingFormModal({
         <div className="flex flex-col sm:flex-row gap-3 pt-2">
           <button
             type="submit"
-            disabled={saving}
+            disabled={saving || deleting}
             className="flex min-h-[52px] flex-1 items-center justify-center rounded-full border border-[#245B45] bg-white px-6 py-3 text-[16px] font-bold text-[#245B45] hover:bg-[#EEF1E8] disabled:opacity-60"
           >
             {saving ? 'Saving...' : 'Save Draft'}
@@ -631,13 +654,49 @@ export function ListingFormModal({
 
           <button
             type="button"
-            disabled={saving}
+            disabled={saving || deleting}
             onClick={() => void handleSubmitForReview()}
             className="flex min-h-[52px] flex-1 items-center justify-center rounded-full bg-[#245B45] px-6 py-3 text-[16px] font-bold text-white hover:bg-[#173E2F] disabled:opacity-60"
           >
             {saving ? 'Submitting...' : 'Submit for Review'}
           </button>
         </div>
+
+        {propertyId && (
+          <div className="border-t border-[#EEF1E8] pt-4 flex flex-wrap items-center justify-between gap-3">
+            <span className="text-[14px] text-[#666666]">
+              Want to remove this property permanently?
+            </span>
+            {confirmDelete ? (
+              <div className="flex items-center gap-2">
+                <button
+                  type="button"
+                  disabled={deleting}
+                  onClick={() => void handleDeleteListing()}
+                  className="min-h-[44px] rounded-full bg-[#8A4A18] px-5 py-2 text-[14px] font-bold text-white disabled:opacity-60"
+                >
+                  {deleting ? 'Deleting...' : 'Confirm Delete'}
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setConfirmDelete(false)}
+                  className="min-h-[44px] rounded-full border border-[#D3DDD0] px-4 py-2 text-[14px] font-bold text-[#1F3229]"
+                >
+                  Cancel
+                </button>
+              </div>
+            ) : (
+              <button
+                type="button"
+                onClick={() => setConfirmDelete(true)}
+                className="inline-flex min-h-[44px] items-center gap-1.5 rounded-full border border-[#D8B490] bg-[#FDF3E7] px-5 py-2 text-[14px] font-bold text-[#8A4A18]"
+              >
+                <Trash2 className="h-4 w-4" aria-hidden="true" />
+                <span>Delete Property</span>
+              </button>
+            )}
+          </div>
+        )}
       </form>
     </AccessibleModal>
   );
